@@ -13,6 +13,7 @@ services:
     - db
     environment: 
       SECRET_KEY: thisisdjangosecretkey
+      TMDB_KEY: YourTMDBKeyGoesHere
       ALLOWED_HOSTS: "*"
       DEBUG: "False"
       DATABASE_URL: postgres://postgres:postgres@db:5432/spotflix
