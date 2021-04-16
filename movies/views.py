@@ -9,6 +9,12 @@ class Trending(viewsets.ViewSet):
 
     def top(self, request):
 
-        data = api_helper.trending_media(self.request.query_params.get('page') or 1)
+        if self.request.query_params.get('type') == 'm':
+            data = api_helper.trending_movies(self.request.query_params.get('page') or 1)
+        elif self.request.query_params.get('type') == 't':   
+            data = api_helper.trending_shows(self.request.query_params.get('page') or 1)
+        else:
+            data = api_helper.trending_media(self.request.query_params.get('page') or 1)
+
 
         return Response(data)
